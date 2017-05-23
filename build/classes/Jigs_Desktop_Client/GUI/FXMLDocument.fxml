@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="main_panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="301.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Jigs_Desktop_Client.GUI.FXMLDocumentController">
+  <children>
+    <TabPane fx:id="main_tab_pane" layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="301.0" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab fx:id="welcome_tab" text="Welcome">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="169.0" prefWidth="278.0">
+              <children>
+                <Label fx:id="search_result" layoutX="69.0" layoutY="114.0" prefWidth="218.0" text="You must login to use Raptor!" textAlignment="CENTER">
+                  <font>
+                    <Font name="Tempus Sans ITC" size="15.0" />
+                  </font>
+                </Label>
+                <Label layoutX="21.0" layoutY="151.0" text="Username" textOverrun="WORD_ELLIPSIS" underline="false">
+                  <font>
+                    <Font name="Vani" size="15.0" fx:id="x1" />
+                  </font>
+                </Label>
+                <TextField fx:id="user_name" layoutX="115.0" layoutY="153.0" prefWidth="172.0" promptText="\@username" />
+                <Label font="$x1" layoutX="21.0" layoutY="193.0" text="Password" />
+                <Button fx:id="btn_login" defaultButton="true" layoutX="70.0" layoutY="282.0" mnemonicParsing="false" onAction="#authenticateUser" prefWidth="58.0" text="Login" />
+                <PasswordField fx:id="password" layoutX="115.0" layoutY="195.0" prefWidth="172.0" promptText="password" text="" />
+                <Label fx:id="copyrights" layoutX="128.0" layoutY="329.0" prefHeight="20.0" prefWidth="181.0" text="© 2017 MedPlus Pharmacy" />
+                <Label fx:id="login_status" layoutX="41.0" layoutY="242.0" prefWidth="249.0" text="">
+                  <font>
+                    <Font name="OCR A Extended" size="12.0" />
+                  </font>
+                </Label>
+                <Button fx:id="btn_logout" disable="false" layoutX="143.0" layoutY="282.0" mnemonicParsing="false" onAction="#logout" text="Logout" />
+                <ImageView fitHeight="87.0" fitWidth="116.0" layoutX="93.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@resources/Chat.png" />
+                  </image>
+                </ImageView>
+                <Button fx:id="btn_exit" layoutX="212.0" layoutY="282.0" mnemonicParsing="false" onAction="#exit_request" prefWidth="58.0" text="Exit" textFill="#330c00" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab fx:id="my_circle_tab" disable="true" text="My Circle">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <TextField id="tx_username" fx:id="circle_username_search" disable="true" layoutX="14.0" layoutY="312.0" prefHeight="32.0" prefWidth="198.0" promptText="Feature not available in trail version!" text="" />
+                <Button id="btn_connect" fx:id="btn_circle_user_search" defaultButton="false" disable="true" layoutX="227.0" layoutY="310.0" mnemonicParsing="false" onAction="#connectUser" prefHeight="36.0" prefWidth="64.0" text="Search" />
+                <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="file:/C:/Users/Anwar/Desktop/Search.png" />
+                  </image>
+                </ImageView>
+                <ListView fx:id="my_circle_list" layoutX="8.0" layoutY="69.0" onMouseClicked="#showSelectedUser" prefHeight="222.0" prefWidth="279.0" />
+                <ImageView id="spin_earth_image" fx:id="img_connections" fitHeight="55.21250114635328" fitWidth="56.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@resources/Connections_active.gif" />
+                  </image>
+                </ImageView>
+                <Label fx:id="selected_user" layoutX="93.0" layoutY="10.0" prefWidth="194.0" text="No user selected!" />
+                <Button fx:id="connect_selected_user" layoutX="212.0" layoutY="35.0" mnemonicParsing="false" onAction="#connectUser" text="Connect" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab fx:id="message_tab" disable="true" text="Messages">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <TextArea fx:id="text_message" layoutX="8.0" layoutY="300.0" prefHeight="55.0" prefWidth="209.0" promptText="Your Message" wrapText="true" />
+                <Button fx:id="btn_send" cancelButton="false" defaultButton="true" disable="true" layoutX="227.0" layoutY="310.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="35.0" prefWidth="64.0" text="Send" />
+                <ListView fx:id="messages_list" layoutX="8.0" layoutY="69.0" pickOnBounds="false" prefHeight="222.0" prefWidth="279.0" />
+                <Button id="btn_connect" fx:id="btn_disconnect" defaultButton="false" layoutX="212.0" layoutY="35.0" mnemonicParsing="false" onAction="#disconnect" text="Disconnect" />
+                <Label fx:id="search_user_result" layoutX="93.0" layoutY="10.0" prefWidth="158.0" text="Not connected to any user!" />
+                <Circle fx:id="connection_circle" fill="RED" layoutX="82.0" layoutY="19.0" radius="3.8124080383313412" stroke="BLACK" strokeType="INSIDE" />
+                <ImageView fx:id="spin_earth_image" fitHeight="55.21250114635328" fitWidth="56.0" layoutX="14.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="file:/G:/Jigs/Jigs_Desktop_Client/src/Jigs_Desktop_Client/GUI/resources/spin_earth_dark.gif" />
+                  </image>
+                </ImageView>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </children>
+</AnchorPane>

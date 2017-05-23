@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Jigs_Desktop_Client.jnlp">
+  <information>
+    <title>Jigs_Desktop_Client</title>
+    <vendor>Anwar</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Jigs_Desktop_Client.jar" size="1816664" download="eager" />
+    <jar href="lib\commons-codec-1.10.jar" size="284184" download="eager" />
+    <jar href="lib\commons-lang3-3.5.jar" size="479881" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Jigs_Desktop_Client" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="Jigs_Desktop_Client.GUI.Jigs_Desktop_Client"  name="Jigs_Desktop_Client" />
+  <update check="always"/>
+</jnlp>
